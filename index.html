@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sacramento&display=swap" rel="stylesheet">
+    <title>Corazón 3D Anderson Niño Consentido</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: "Sacramento", cursive;
+        }
+        .corazon {
+            position: relative;
+            width: 150px; /* Aumentar el ancho del corazón */
+            height: 150px; /* Aumentar el alto del corazón */
+            background-color: red;
+            transform: rotate(-45deg); /* Rotación correcta para el corazón */
+            animation: latido 1s infinite alternate; /* Animación de latido */
+            z-index: 1;
+        }
+        .corazon::before,
+        .corazon::after {
+            content: '';
+            position: absolute;
+            width: 150px; /* Aumentar el ancho de los círculos */
+            height: 150px; /* Aumentar el alto de los círculos */
+            background-color: red;
+            border-radius: 50%; /* Círculos para la parte superior del corazón */
+        }
+        .corazon::before {
+            top: -75px; /* Ajuste proporcional para la posición del círculo superior izquierdo */
+            left: 0;
+        }
+        .corazon::after {
+            left: 75px; /* Ajuste proporcional para la posición del círculo superior derecho */
+        }
+        @keyframes latido {
+            0% {
+                transform: scale(1) rotate(-45deg); /* Mantiene la rotación durante la animación */
+            }
+            100% {
+                transform: scale(1.1) rotate(-45deg); /* Escala el corazón durante el latido */
+            }
+        }
+        .nombre {
+            transform: rotate(45deg);
+            position: absolute;
+            left: 20px; 
+            bottom: 40px; /* Ajusta la posición según sea necesario */
+            text-align: center;
+            font-size: 30px; /* Tamaño de fuente ajustado */
+            z-index: 3;
+            overflow: hidden; /* Esconde el texto que no se ha "escrito" aún */
+            white-space: nowrap; /* Mantiene el texto en una sola línea */
+            border-right: .15em solid white; /* Cursor de escritura */
+        }
+        .typing {
+            animation: typing 3s steps(30, end), blink-caret .75s step-end infinite; /* Animaciones de escritura y parpadeo del cursor */
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; } /* Color del cursor durante el parpadeo */
+        }
+        .titulo {
+            position: absolute;
+            top: 10px;
+            font-size: 50px; /* Tamaño de fuente para el título */
+            color: white; /* Color del texto */
+            animation: fadeIn 2s ease-in-out; /* Animación de aparición */
+       }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; } /* Efecto de desvanecimiento para el título */
+        }
+    </style>
+</head>
+<body>
+    <div class="titulo">Gracias por las flores</div> <!-- Título agregado -->
+    <div class="corazon">
+        <div class="nombre typing">Anderson<br>niño consentido</div>
+    </div>
+</body>
+</html>
